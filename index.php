@@ -9,9 +9,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
+    <body>        
+        <a href="revision.php"> Revisi&oacute;n sesi&oacute;n</a> 
+        
         <?php
-        // put your code here
+        echo md5('#holamundo&');
+        echo '<br>';
+        echo md5('holamundo');
+        echo '<br>';
+        echo md5('HolaMundo');
+        echo '<br>';
+        echo md5('HOLA MUNDO');
+        echo '<br>';
         ?>
     </body>
 </html>
