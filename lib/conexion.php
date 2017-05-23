@@ -1,5 +1,5 @@
 <?php
-class Conexion{
+class conexion{
     var $objconn;
     
     /*Metodo de conexion*/
