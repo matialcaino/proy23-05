@@ -1,27 +1,27 @@
 <?php
-class usuario {
+class Usuario{
     
     var $idusuario;
     var $nombre;
     var $clave;
     
-    function VerificaUsuario(){
-        $oConn = new conexion();
-        
-        if($oConn->Conectar())
-            $db = $oConn->objoonn;
-        else
+    /* VALIDA LA EXISTENCIA DEL USUARIO*/
+    function VerificarUsuarioClave(){
+        $oConn = new Conexion();
+        if ($oConn->Conectar()){
+            $db = $oConn -> objconn;
+        }else{
             return false;
+        }
         
-        $sql="SELECT + FROM acceso WHERE nomusuario='$this->nombre'";
+        $clavemd5 = md5($this->clave);
+        $sql = "SELECT * FROM acceso WHERE nomusuario='$this->nombre' AND pwdusuario='$clavemd5'";
+        $resultado=$db->query($sql);
         
-        $resultado = $db->query($sql);
-        
-        if($resultado->num_rows>=1)
+        if($resultado->num_rows>=1){
             return true;
-        else 
+        }else{
             return false;
-        
-                
+        }
     }
 }

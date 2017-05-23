@@ -2,20 +2,24 @@
 class Conexion{
     var $objconn;
     
-    /*Método de conexión*/
-    var $dbusr="root";
-    var $dbpwd="avaras08";
-    var $dbhost="localhost";
-    var $dbname="exportaciones"; 
+    /*Metodo de conexion*/
     
-    public function conectar(){
-        $this->objconn = new mysqli($this->dbhost,
-                                    $this->dbusr,
-                                    $this->dbpwd,
-                                    $this->dbname);
-        if($this->objconn->connect_errno) {
-            return "Fallo al conectar a MySQL: (" .$this->objconn->connect_errno . ") " . $this->objconn->connect_errno;
-        }
+    var $dbusr= "root";
+    var $dbpwd= "avaras08";
+    var $dbhots= "localhost";
+    var $dbname= "exportaciones";
+    public function  Conectar()
+            {
+       // $miconn = new myqli("localhost","root","avaras08","exportaciones");
+        
+                $this->objconn = new mysqli( $this->dbhots, 
+                                             $this->dbusr, 
+                                             $this->dbpwd,
+                                             $this->dbname);
+           if($this->objconn ->connect_errno){
+            echo "fallo al conectar a MySQL: (". $this->objconn-> connect_errno . ") " .$miconn->connect_errno;
+        }   
         return true;
     }
 }
+?>
